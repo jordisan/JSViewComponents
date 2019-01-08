@@ -1,0 +1,6 @@
+.jsviewcomponent.loading {
+  cursor: wait;
+  opacity: 0.5; }
+
+.jsviewcomponent.table th {
+  cursor: pointer; }

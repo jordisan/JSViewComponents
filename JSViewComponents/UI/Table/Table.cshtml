@@ -1,0 +1,37 @@
+﻿@using JSViewComponents.UI.Table
+@model TableViewComponent
+
+@if (Model?.Data?.FirstOrDefault() == null)
+{
+    <!-- NO DATA -->
+}
+else
+{
+
+<table>
+    <tr>
+        @{
+            // Get headers from first item
+            IColumnable firstItem = Model.Data.FirstOrDefault();
+            foreach (string key in firstItem.ToColumns()?.Keys)
+            {
+                <th class="@Model.NormalizeString(key)" data-property-name="">@key</th>
+            }
+        }
+    </tr>
+
+    @foreach (IColumnable item in Model.Data)
+    {
+        IDictionary<string, string> columns = item.ToColumns();
+        <tr>
+            @foreach (string key in columns.Keys)
+            {
+                <td class="@Model.NormalizeString(key)">
+                    @columns[key]
+                </td>
+            }
+        </tr>
+    }
+</table>
+
+}

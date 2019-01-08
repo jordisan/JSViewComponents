@@ -1,0 +1,14 @@
+﻿@model JSViewComponents.UI.BaseViewComponent
+<article 
+    class="jsviewcomponent @(Model.NormalizeString(Model.ComponentName))" 
+    id="@Model.Id"
+    @foreach (KeyValuePair<string, object> pair in Model.GetComponentParams())
+    {
+        <text>data-@(Model.NormalizeString(pair.Key))="@(pair.Value.ToString())"</text>
+    }
+>
+    @await Html.PartialAsync(Model.PartialPath(), Model)
+</article>
+<script type="text/javascript">
+    new @(Model.ComponentName)('@Model.Id', '@Model.DataUrl');
+</script>
