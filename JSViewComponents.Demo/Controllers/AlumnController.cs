@@ -11,9 +11,9 @@ namespace JSViewComponents.Demo.Controllers
 {
     public class AlumnController : JSViewComponentController
     {
-        public IActionResult Get(string componentName)
+        public IActionResult Get(string sortCriteria)
         {
-            return RenderJSViewComponent(new JSViewComponents.UI.Table.TableViewComponent(Alumn.SampleAlumns));
+            return RenderJSViewComponent(new JSViewComponents.UI.Table.TableViewComponent<Alumn>(Alumn.SampleAlumns, sortCriteria));
         }
     }
 }

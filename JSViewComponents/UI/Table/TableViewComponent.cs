@@ -1,29 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
+using System.Linq.Dynamic.Core;
 
 namespace JSViewComponents.UI.Table
 {
-    public class TableViewComponent : UI.BaseViewComponent
+    public class TableViewComponent<Tdata>
+        : UI.BaseViewComponent
+        where Tdata : IColumnable
     {
-        public IEnumerable<IColumnable> Data;
-        public bool Sortable;
+        private IEnumerable<Tdata> _Data;
+        /// <summary>
+        /// Data to be shown as table
+        /// </summary>
+        public IEnumerable<Tdata> Data => String.IsNullOrEmpty(this.SortCriteria) ? 
+            this._Data : 
+            this._Data.ToList().AsQueryable().OrderBy(this.SortCriteria);
+        protected string SortCriteria;
 
-        public TableViewComponent(string url) : base(url)
-        {}
-
-        public TableViewComponent(IEnumerable<IColumnable> data)
+        /// <summary>
+        /// Create table component
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="sortCriteria"></param>
+        /// <param name="dataUrl"></param>
+        public TableViewComponent(IEnumerable<Tdata> data, string sortCriteria = null, string dataUrl = null)
+            :base(dataUrl)
         {
-            this.Data = data;
-        }
-
-        public override IDictionary<string, object> GetComponentParams()
-        {
-            return new Dictionary<string, object> {
-                { "Sortable", this.Sortable }
-            };
+            this._Data = data;
+            this.SortCriteria = sortCriteria;          
         }
     }
 }

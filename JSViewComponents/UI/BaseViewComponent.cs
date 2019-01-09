@@ -19,7 +19,7 @@ namespace JSViewComponents.UI
         /// </summary>
         public readonly Uri DataUrl;
 
-        #region CONSTRUCTORS
+#region CONSTRUCTORS
 
         public BaseViewComponent() {}
         
@@ -27,17 +27,28 @@ namespace JSViewComponents.UI
         /// To be used by subclasses
         /// </summary>
         /// <param name="url"></param>
-        protected BaseViewComponent(string url) : this(new Uri(url))
+        protected BaseViewComponent(string dataUrl) : this(new Uri(dataUrl))
         {}
 
-        protected BaseViewComponent(Uri url)
+        protected BaseViewComponent(Uri dataUrl)
         {
-            this.DataUrl = url;
+            this.DataUrl = dataUrl;
         }
 
         #endregion
+        
+        /// <summary>
+        /// To remove generic info from type name (we don't want it to compute component name)
+        /// </summary>
+        /// <returns></returns>
+        private string GetFullNameWithoutGenericArity()
+        {
+            string name = this.GetType().Name;
+            int index = name.IndexOf('`');
+            return index == -1 ? name : name.Substring(0, index);
+        }
 
-        public string ComponentFullName => this.GetType().Name;
+        public string ComponentFullName => this.GetFullNameWithoutGenericArity();
         public string ComponentName => this.ComponentFullName.EndsWith("ViewComponent") ?
             this.ComponentFullName.Replace("ViewComponent", String.Empty) :
             this.ComponentFullName;
@@ -66,7 +77,7 @@ namespace JSViewComponents.UI
             return new Dictionary<string, object>();
         }
 
-        #region STATIC
+#region STATIC
 
         internal static string GetNormalized(string str)
         {
@@ -85,7 +96,7 @@ namespace JSViewComponents.UI
             return "~/UI/" + componentName + "/" + componentName + ".cshtml";
         }
 
-        #endregion
+#endregion
 
     }
 }

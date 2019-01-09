@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JSViewComponents.UI.Table;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,13 +13,12 @@ namespace JSViewComponents.Demo.Models
         public string LastName;
         public DateTime BirthDate;
 
-        public IDictionary<string, string> ToColumns()
+        public IEnumerable<Column> ToColumns()
         {
-            return new Dictionary<string, string>
-            {
-                {"First name", this.FirstName },
-                {"Last name", this.LastName },
-                {"Birth date", this.BirthDate.ToShortDateString() }
+            return new Column[] {
+                new Column("FirstName", "First name", this.FirstName, true),
+                new Column("LastName", "Last name", this.LastName, true),
+                new Column("BirthDate", "Birth date", this.BirthDate.ToShortDateString(), false)
             };
         }
 

@@ -56,7 +56,7 @@ var Table = /** @class */ (function (_super) {
     Table.prototype.initialize = function () {
         var _this = this;
         // click on title to get sorted data
-        this.el.querySelectorAll('th').forEach(function (header) { return header.addEventListener("click", function (event) { _this.getFromServer({ sortBy: event.target.toString() }); }); });
+        this.el.querySelectorAll('th.sortable').forEach(function (header) { return header.addEventListener("click", function (event) { _this.getFromServer({ sortCriteria: event.target.dataset.internalName + ' ASC' }); }); });
     };
     return Table;
 }(Base));
