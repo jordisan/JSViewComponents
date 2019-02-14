@@ -1,21 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Dynamic.Core;
+using System.Linq.Expressions;
 
 namespace JSViewComponents.UI.Table
 {
-    public class TableViewComponent<Tdata>
+    public class TableViewComponent 
         : UI.BaseViewComponent
-        where Tdata : IColumnable
     {
-        private IEnumerable<Tdata> _Data;
+        private IEnumerable<IColumnable> _Data;
         /// <summary>
         /// Data to be shown as table
         /// </summary>
-        public IEnumerable<Tdata> Data => String.IsNullOrEmpty(this.SortCriteria) ? 
-            this._Data : 
-            this._Data.ToList().AsQueryable().OrderBy(this.SortCriteria);
+        public IEnumerable<IColumnable> Data {
+            get
+            {
+                if (String.IsNullOrEmpty(SortCriteria)) return _Data;
+                string sortProperty = SortCriteria.Split(' ')[0];
+                string sortOrder = (SortCriteria + " ASC").Split(' ')[1];
+                if (sortOrder.Equals("ASC", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return this._Data.OrderBy(p => p.GetType().GetProperty(sortProperty).GetValue(p, null)).ToList();
+                }
+                else
+                {
+                    return this._Data.OrderByDescending(p => p.GetType().GetProperty(sortProperty).GetValue(p, null)).ToList();
+                }
+            }
+        }
+
         protected string SortCriteria;
 
         /// <summary>
@@ -24,7 +37,7 @@ namespace JSViewComponents.UI.Table
         /// <param name="data"></param>
         /// <param name="sortCriteria"></param>
         /// <param name="dataUrl"></param>
-        public TableViewComponent(IEnumerable<Tdata> data, string sortCriteria = null, string dataUrl = null)
+        public TableViewComponent(IEnumerable<IColumnable> data, string sortCriteria = null, string dataUrl = null)
             :base(dataUrl)
         {
             this._Data = data;

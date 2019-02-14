@@ -27,7 +27,7 @@ namespace JSViewComponents.UI
         /// To be used by subclasses
         /// </summary>
         /// <param name="url"></param>
-        protected BaseViewComponent(string dataUrl) : this(new Uri(dataUrl))
+        protected BaseViewComponent(string dataUrl) : this(dataUrl==null ? null : new Uri(dataUrl))
         {}
 
         protected BaseViewComponent(Uri dataUrl)

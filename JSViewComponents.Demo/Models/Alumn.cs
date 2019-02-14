@@ -9,9 +9,9 @@ namespace JSViewComponents.Demo.Models
     public class Alumn
         : UI.Table.IColumnable
     {
-        public string FirstName;
-        public string LastName;
-        public DateTime BirthDate;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
 
         public IEnumerable<Column> ToColumns()
         {

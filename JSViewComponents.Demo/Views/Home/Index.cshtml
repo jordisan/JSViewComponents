@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Home Page";
 
-    JSViewComponents.UI.Table.TableViewComponent<Alumn> tableComponent =
-        new JSViewComponents.UI.Table.TableViewComponent<Alumn>(
+    JSViewComponents.UI.Table.TableViewComponent tableComponent =
+        new JSViewComponents.UI.Table.TableViewComponent(
             Model,
             null,
             Url.Action("Get", "Alumn", null, Context.Request.Scheme)

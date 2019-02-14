@@ -13,7 +13,7 @@ namespace JSViewComponents.Demo.Controllers
     {
         public IActionResult Get(string sortCriteria)
         {
-            return RenderJSViewComponent(new JSViewComponents.UI.Table.TableViewComponent<Alumn>(Alumn.SampleAlumns, sortCriteria));
+            return RenderJSViewComponent(new JSViewComponents.UI.Table.TableViewComponent(Alumn.SampleAlumns, sortCriteria));
         }
     }
 }
