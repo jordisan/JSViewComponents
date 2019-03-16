@@ -16,7 +16,7 @@ class Base {
     /** Refresh component content from server */
     public getFromServer = (params: { [paramName: string]: string }) => {
         var url: URL = this.dataUrl;
-        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+        Object.keys(params).forEach(key => url.searchParams.set(key, params[key]))
         this.el.classList.add(LOADINGCLASS);
         fetch(
             url.toString(),

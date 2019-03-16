@@ -19,7 +19,7 @@ var Base = /** @class */ (function () {
         /** Refresh component content from server */
         this.getFromServer = function (params) {
             var url = _this.dataUrl;
-            Object.keys(params).forEach(function (key) { return url.searchParams.append(key, params[key]); });
+            Object.keys(params).forEach(function (key) { return url.searchParams.set(key, params[key]); });
             _this.el.classList.add(LOADINGCLASS);
             fetch(url.toString(), {
                 method: "GET",
