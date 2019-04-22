@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace JSViewComponents.UI
 {
+    /// <summary>
+    /// Base class for any JSViewComponent
+    /// </summary>
     public class BaseViewComponent : ViewComponent
     {
         /// <summary>

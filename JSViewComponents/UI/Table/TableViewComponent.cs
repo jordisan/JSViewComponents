@@ -5,6 +5,9 @@ using System.Linq.Expressions;
 
 namespace JSViewComponents.UI.Table
 {
+    /// <summary>
+    /// Table JSViewComponent
+    /// </summary>
     public class TableViewComponent 
         : UI.BaseViewComponent
     {

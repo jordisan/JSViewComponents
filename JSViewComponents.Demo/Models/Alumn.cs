@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace JSViewComponents.Demo.Models
 {
+    /// <summary>
+    /// Example of a model (class) that can be rendered using a table component
+    /// </summary>
     public class Alumn
         : UI.Table.IColumnable
     {

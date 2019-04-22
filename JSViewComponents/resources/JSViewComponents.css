@@ -4,3 +4,6 @@
 
 .jsviewcomponent.table th.sortable {
   cursor: pointer; }
+
+.jsviewcomponent.table th, .jsviewcomponent.table td {
+  padding: 3px 5px; }

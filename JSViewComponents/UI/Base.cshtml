@@ -1,14 +1,18 @@
-﻿@model JSViewComponents.UI.BaseViewComponent
+﻿@* Template to be used for any JSViewComponent *@
+@model JSViewComponents.UI.BaseViewComponent
 <article 
     class="jsviewcomponent @(Model.NormalizeString(Model.ComponentName))" 
     id="@Model.Id"
     @foreach (KeyValuePair<string, object> pair in Model.GetComponentParams())
     {
+        @* Include params as data- attributes *@
         <text>data-@(Model.NormalizeString(pair.Key))="@(pair.Value.ToString())"</text>
     }
 >
+    @* Render the particular template for the component *@
     @await Html.PartialAsync(Model.PartialPath(), Model)
 </article>
 <script type="text/javascript">
+    @* Initialize the JS *@
     new @(Model.ComponentName)('@Model.Id', '@Model.DataUrl');
 </script>

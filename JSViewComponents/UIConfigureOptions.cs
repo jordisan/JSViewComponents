@@ -9,6 +9,9 @@ using System.Text;
 
 namespace JSViewComponents
 {
+    /// <summary>
+    /// To access resources (.js, .css) in this library from outer projects
+    /// </summary>
     public class UIConfigureOptions : IPostConfigureOptions<StaticFileOptions>
     {
         public UIConfigureOptions(IHostingEnvironment environment)

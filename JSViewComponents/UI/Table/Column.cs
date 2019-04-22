@@ -41,7 +41,7 @@ namespace JSViewComponents.UI.Table
     }
 
     /// <summary>
-    /// Any object wich may be converted to columns
+    /// Any object wich may be rendered as columns
     /// </summary>
     public interface IColumnable
     {

@@ -3,13 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JSViewComponents
 {
+    /// <summary>
+    /// TagHelper to include JSViewComponents inside views; for example: 
+    /// <example><code>
+    /// &lt;jsvc component="tableComponent"&gt;&lt;/jsvc&gt;
+    /// </code></example>
+    /// </summary>
     [HtmlTargetElement("jsvc", Attributes = ComponentAttributeName)]
     public class JSViewComponentTagHelper : TagHelper
     {

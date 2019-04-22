@@ -2,8 +2,17 @@
 
 namespace JSViewComponents.Server
 {
+    /// <summary>
+    /// Generic MVC controller for JSViewComponents
+    /// </summary>
     public class JSViewComponentController : Controller
     {
+        /// <summary>
+        /// Return the rendered component
+        /// </summary>
+        /// <typeparam name="Tcomponent"></typeparam>
+        /// <param name="component"></param>
+        /// <returns></returns>
         public IActionResult RenderJSViewComponent<Tcomponent>(Tcomponent component) 
             where Tcomponent : JSViewComponents.UI.BaseViewComponent {
             return PartialView(

@@ -12,4 +12,9 @@
     <ProjectReference Include="..\JSViewComponents\JSViewComponents.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
 </Project>
