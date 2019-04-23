@@ -5,6 +5,14 @@ which allows to easily create **components with added JavaScript/TypeScript func
 
 **Live demo at (http://jsviewcomponents.jordisan.net)**
 
+### What this is:
+- a way to extend the natural solution for ASP.NET MVC components (View components) with your custom components and additional JavaScript/TypeScript
+- server rendered (no SEO problems; quick browser rendering)
+
+### What this is not:
+- not another heavy JS framework of browser-rendered library components
+- not dependent on external libraries or polyfills
+
 ---
 
 This solution includes two projects:
@@ -15,7 +23,34 @@ JSViewComponents library; can be referenced as a Visual Studio project, or as a 
 
 ## JSViewComponents.Demo
 
-Example of a project using (and extending) JSViewComponents
+Example of a MVC project using (and extending) JSViewComponents. 
+
+Key points:
+- reference to _JSViewComponents_ library (through project reference or NuGet package)
+- [`Models/Alumn.cs`](JSViewComponents.Demo/Models/Alumn.cs) is a model whose data will be shown using a JSViewComponent (a table)
+- [`Controllers/AlumnController.cs`](JSViewComponents.Demo/Controllers/AlumnController.cs) is a JSViewComponentController to process Ajax calls from a component
+- in [`Startup.cs`](JSViewComponents.Demo/Startup.cs#L34) (to access resources in JSViewComponents):
+```csharp
+services.ConfigureOptions(typeof(JSViewComponents.UIConfigureOptions));
+```
+- in [`Views/\_ViewImports.cshtml`](JSViewComponents.Demo/Views/_ViewImports.cshtml) (namespaces and tag helpers to include JSViewComponents in views):
+```csharp
+@using JSViewComponents.Demo
+@using JSViewComponents.Demo.Models
+@addTagHelper *, JSViewComponents
+```
+- in [`Views/Home/Index.cshtml`](JSViewComponents.Demo/Views/Home/Index.cshtml#L21) (example of including a component in a view):
+```csharp
+@{
+    JSViewComponents.UI.Table.TableViewComponent alumnsTableComponent =
+        new JSViewComponents.UI.Table.TableViewComponent(
+            Model,
+            null,
+            Url.Action("GetAll", "Alumn", null, Context.Request.Scheme)
+        );
+}
+<jsvc component="alumnsTableComponent"></jsvc>
+```
 
 ## Credits
 This project has been created by **[jordisan](https://jordisan.net)**, partially based on a [reusable components library](https://github.com/ianbusko/reusable-components-library)
