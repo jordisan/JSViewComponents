@@ -25,21 +25,23 @@ JSViewComponents library; can be referenced as a Visual Studio project, or as a 
 
 Example of a MVC project using (and extending) JSViewComponents. 
 
-Key points:
+### Including JSViewComponents:
 - reference to _JSViewComponents_ library (through project reference or NuGet package)
-- [`Models/Alumn.cs`](JSViewComponents.Demo/Models/Alumn.cs) is a model whose data will be shown using a JSViewComponent (a table)
-- [`Controllers/AlumnController.cs`](JSViewComponents.Demo/Controllers/AlumnController.cs) is a JSViewComponentController to process Ajax calls from a component
 - in [`Startup.cs`](JSViewComponents.Demo/Startup.cs#L34) (to access resources in JSViewComponents):
 ```csharp
 services.ConfigureOptions(typeof(JSViewComponents.UIConfigureOptions));
 ```
-- in [`Views/\_ViewImports.cshtml`](JSViewComponents.Demo/Views/_ViewImports.cshtml) (namespaces and tag helpers to include JSViewComponents in views):
+- in [`Views/_ViewImports.cshtml`](JSViewComponents.Demo/Views/_ViewImports.cshtml) (namespaces and tag helpers to include JSViewComponents in views):
 ```csharp
 @using JSViewComponents.Demo
 @using JSViewComponents.Demo.Models
 @addTagHelper *, JSViewComponents
 ```
-- in [`Views/Home/Index.cshtml`](JSViewComponents.Demo/Views/Home/Index.cshtml#L21) (example of including a component in a view):
+
+### Using JSViewComponents:
+- [`Models/Alumn.cs`](JSViewComponents.Demo/Models/Alumn.cs) is a model whose data will be shown using a JSViewComponent (a table)
+- [`Controllers/AlumnController.cs`](JSViewComponents.Demo/Controllers/AlumnController.cs) is a JSViewComponentController to process Ajax calls from the table component
+- in [`Views/Home/Index.cshtml`](JSViewComponents.Demo/Views/Home/Index.cshtml#L21) is example of including a table component in a view:
 ```csharp
 @{
     JSViewComponents.UI.Table.TableViewComponent alumnsTableComponent =
