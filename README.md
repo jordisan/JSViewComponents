@@ -6,7 +6,7 @@ which allows to easily create **components with added JavaScript/TypeScript func
 **Live demo at (http://jsviewcomponents.jordisan.net)**
 
 ### What this is:
-- a way to extend the natural solution for ASP.NET MVC components (View components) with your custom components and additional JavaScript/TypeScript
+- a way to extend the natural solution for ASP.NET MVC visual components (View components) with your custom components and additional JavaScript/TypeScript
 - server rendered (no SEO problems; quick browser rendering)
 
 ### What this is not:
@@ -41,7 +41,7 @@ services.ConfigureOptions(typeof(JSViewComponents.UIConfigureOptions));
 ### Using JSViewComponents:
 - [`Models/Alumn.cs`](JSViewComponents.Demo/Models/Alumn.cs) is a model whose data will be shown using a JSViewComponent (a table)
 - [`Controllers/AlumnController.cs`](JSViewComponents.Demo/Controllers/AlumnController.cs) is a JSViewComponentController to process Ajax calls from the table component
-- in [`Views/Home/Index.cshtml`](JSViewComponents.Demo/Views/Home/Index.cshtml#L21) is example of including a table component in a view:
+- finally, to include the table component in view [`Views/Home/Index.cshtml`](JSViewComponents.Demo/Views/Home/Index.cshtml#L21):
 ```csharp
 @{
     JSViewComponents.UI.Table.TableViewComponent alumnsTableComponent =
