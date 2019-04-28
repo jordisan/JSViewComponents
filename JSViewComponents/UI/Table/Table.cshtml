@@ -9,29 +9,33 @@ else
 {
 
     <table>
-        <tr>
-            @{
-                // Get headers from first item
-                IColumnable firstItem = Model.Data.FirstOrDefault();
-                foreach (Column col in firstItem.ToColumns())
-                {
-                    <th class="@Model.NormalizeString(col.InternalName)@(col.Sortable?" sortable":"")" data-internal-name="@col.InternalName">@col.Header</th>
-                }
-            }
-        </tr>
-
-        @foreach (IColumnable item in Model.Data)
-        {
-            IEnumerable<Column> columns = item.ToColumns();
+        <thead>
             <tr>
-                @foreach (Column col in columns)
-                {
-                    <td class="@Model.NormalizeString(col.InternalName)">
-                        @col.Value.ToString()
-                    </td>
+                @{
+                    // Get headers from first item
+                    IColumnable firstItem = Model.Data.FirstOrDefault();
+                    foreach (Column col in firstItem.ToColumns())
+                    {
+                        <th class="@Model.NormalizeString(col.InternalName)@(col.Sortable?" sortable":"")" data-internal-name="@col.InternalName">@col.Header</th>
+                    }
                 }
             </tr>
-        }
+        </thead>
+
+        <tbody>
+            @foreach (IColumnable item in Model.Data)
+            {
+                IEnumerable<Column> columns = item.ToColumns();
+                <tr>
+                    @foreach (Column col in columns)
+                    {
+                        <td class="@Model.NormalizeString(col.InternalName)">
+                            @col.Value.ToString()
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
     </table>
 
 }

@@ -8,7 +8,7 @@ namespace JSViewComponents.Demo.Controllers
     {
         public IActionResult Index()
         {
-            return View(Alumn.SampleAlumns);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

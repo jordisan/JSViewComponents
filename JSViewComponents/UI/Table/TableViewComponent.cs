@@ -40,8 +40,8 @@ namespace JSViewComponents.UI.Table
         /// <param name="data"></param>
         /// <param name="sortCriteria"></param>
         /// <param name="dataUrl"></param>
-        public TableViewComponent(IEnumerable<IColumnable> data, string sortCriteria = null, string dataUrl = null)
-            :base(dataUrl)
+        public TableViewComponent(string name, IEnumerable<IColumnable> data, string sortCriteria = null, string dataUrl = null)
+            :base(name, dataUrl)
         {
             this._Data = data;
             this.SortCriteria = sortCriteria;          

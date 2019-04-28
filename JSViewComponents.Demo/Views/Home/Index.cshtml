@@ -1,6 +1,4 @@
-﻿@model IEnumerable<Alumn>
-
-@{
+﻿@{
     ViewData["Title"] = "JSViewComponents demo";
 }
 
@@ -10,20 +8,35 @@
 <h1>JSViewComponents demo</h1>
 
 <p>
-    Demo for JSViewComponents, an extension of standard ASP.NET Core View components
-    which allows to easily create components with added JavaScript/TypeScript functionality for ASP.NET projects.
-</p> 
-    
-<p>Source code and more info at <a target="_blank" href="https://github.com/jordisan/JSViewComponents">https://github.com/jordisan/JSViewComponents</a></p>
+    Demo for <strong>JSViewComponents</strong>, an extension of standard ASP.NET Core View components
+    which allows to easily create <strong>visual components with added JavaScript/TypeScript functionality for ASP.NET</strong> projects.
+</p>
 
-<h2>TableViewComponent</h2>
-<p style="font-size: smaller;">(click on the headers to get sorted data)</p>
+<p><a target="_blank" href="https://github.com/jordisan/JSViewComponents">JSViewComponents source code and more info at <strong>GitHub</strong></a></p>
+
+<h2>Using JSViewComponents</h2>
+<p>
+    Two differents sets of data using same <strong>TableViewComponent</strong>, but with different CSS styles
+    <span style="font-size: smaller;">(click on the headers to get sorted data).</span>
+</p>
 @{
     JSViewComponents.UI.Table.TableViewComponent alumnsTableComponent =
         new JSViewComponents.UI.Table.TableViewComponent(
-            Model,
+            "alumns",
+            Alumn.SampleAlumns,
             null,
             Url.Action("GetAll", "Alumn", null, Context.Request.Scheme)
         );
 }
 <jsvc component="alumnsTableComponent"></jsvc>
+
+@{
+    JSViewComponents.UI.Table.TableViewComponent subjectsTableComponent =
+        new JSViewComponents.UI.Table.TableViewComponent(
+            "subjects",
+            Subject.SampleSubjects,
+            null,
+            Url.Action("GetAll", "Subject", null, Context.Request.Scheme)
+        );
+}
+<jsvc component="subjectsTableComponent"></jsvc>

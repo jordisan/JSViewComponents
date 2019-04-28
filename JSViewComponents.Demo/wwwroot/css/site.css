@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding: 20px 10px;
     font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
 }
 
 /* Wrapping element */
@@ -11,3 +12,18 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+/* Customization of JSViewComponents */
+
+.jsviewcomponent.table {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+    .jsviewcomponent.table.alumns thead {
+        background-color: #e0f7a5;
+    }
+
+    .jsviewcomponent.table.subjects thead {
+        background-color: #aaffff;
+    }

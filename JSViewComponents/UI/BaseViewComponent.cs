@@ -16,6 +16,11 @@ namespace JSViewComponents.UI
         /// Unique Id for this component
         /// </summary>
         public readonly string Id = System.Guid.NewGuid().ToString("N");
+
+        /// <summary>
+        /// Name for this component
+        /// </summary>
+        public readonly string Name;
  
         /// <summary>
         /// Server Url to get data from for this component
@@ -30,11 +35,12 @@ namespace JSViewComponents.UI
         /// To be used by subclasses
         /// </summary>
         /// <param name="url"></param>
-        protected BaseViewComponent(string dataUrl) : this(dataUrl==null ? null : new Uri(dataUrl))
+        protected BaseViewComponent(string name, string dataUrl) : this(name, dataUrl==null ? null : new Uri(dataUrl))
         {}
 
-        protected BaseViewComponent(Uri dataUrl)
+        protected BaseViewComponent(string name, Uri dataUrl)
         {
+            this.Name = name;
             this.DataUrl = dataUrl;
         }
 

@@ -1,8 +1,9 @@
 ﻿@* Template to be used for any JSViewComponent *@
 @model JSViewComponents.UI.BaseViewComponent
 <article 
-    class="jsviewcomponent @(Model.NormalizeString(Model.ComponentName))" 
+    class="jsviewcomponent @(Model.NormalizeString(Model.Name)) @(Model.NormalizeString(Model.ComponentName))" 
     id="@Model.Id"
+    data-name="@Model.Name"
     @foreach (KeyValuePair<string, object> pair in Model.GetComponentParams())
     {
         @* Include params as data- attributes *@
