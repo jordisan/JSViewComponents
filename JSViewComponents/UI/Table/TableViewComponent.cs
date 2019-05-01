@@ -11,11 +11,11 @@ namespace JSViewComponents.UI.Table
     public class TableViewComponent 
         : UI.BaseViewComponent
     {
-        private IEnumerable<IColumnable> _Data;
+        private IEnumerable<object> _Data;
         /// <summary>
         /// Data to be shown as table
         /// </summary>
-        public IEnumerable<IColumnable> Data {
+        public IEnumerable<object> Data {
             get
             {
                 if (String.IsNullOrEmpty(SortCriteria)) return _Data;
@@ -40,7 +40,7 @@ namespace JSViewComponents.UI.Table
         /// <param name="data"></param>
         /// <param name="sortCriteria"></param>
         /// <param name="dataUrl"></param>
-        public TableViewComponent(string name, IEnumerable<IColumnable> data, string sortCriteria = null, string dataUrl = null)
+        public TableViewComponent(string name, IEnumerable<object> data, string sortCriteria = null, string dataUrl = null)
             :base(name, dataUrl)
         {
             this._Data = data;

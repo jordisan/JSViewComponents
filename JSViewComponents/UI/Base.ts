@@ -8,7 +8,7 @@ class Base {
 
     constructor(id: string, dataUrl: string) {
         this.id = id;
-        this.dataUrl = new URL(dataUrl);
+        this.dataUrl = dataUrl ? new URL(dataUrl) : null;
         this.el = document.getElementById(this.id);
         this.initialize();
     }

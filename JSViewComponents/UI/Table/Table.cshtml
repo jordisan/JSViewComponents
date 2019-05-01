@@ -1,4 +1,5 @@
-﻿@using JSViewComponents.UI.Table
+﻿@using JSViewComponents
+@using JSViewComponents.UI.Table
 @model TableViewComponent
 
 @if (Model?.Data == null)
@@ -13,24 +14,28 @@ else
             <tr>
                 @{
                     // Get headers from first item
-                    IColumnable firstItem = Model.Data.FirstOrDefault();
-                    foreach (Column col in firstItem.ToColumns())
+                    object firstItem = Model.Data.FirstOrDefault();
+                    var propAttrsDictHeader = firstItem.GetJsvcProperties();
+                    foreach (System.Reflection.PropertyInfo prop in propAttrsDictHeader.Keys)
                     {
-                        <th class="@Model.NormalizeString(col.InternalName)@(col.Sortable?" sortable":"")" data-internal-name="@col.InternalName">@col.Header</th>
+                        JsvcPropertyAttr attr = propAttrsDictHeader[prop].First();
+                        <th class="@Model.NormalizeString(prop.Name)@(attr.Sortable?" sortable":"")" data-internal-name="@prop.Name">
+                            @attr.Label
+                        </th>
                     }
                 }
             </tr>
         </thead>
 
         <tbody>
-            @foreach (IColumnable item in Model.Data)
+            @foreach (object item in Model.Data)
             {
-                IEnumerable<Column> columns = item.ToColumns();
+                var propAttrsDict = item.GetJsvcProperties();
                 <tr>
-                    @foreach (Column col in columns)
+                    @foreach (System.Reflection.PropertyInfo prop in propAttrsDict.Keys)
                     {
-                        <td class="@Model.NormalizeString(col.InternalName)">
-                            @col.Value.ToString()
+                        <td class="@Model.NormalizeString(prop.Name)">
+                            @prop.GetValue(item)
                         </td>
                     }
                 </tr>

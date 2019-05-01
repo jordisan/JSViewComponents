@@ -16,6 +16,30 @@
 
 <h2>Using JSViewComponents</h2>
 <p>
+    Components <strong>SingleItem</strong> showing data for a single alumn and a single subject.
+</p>
+@{
+    JSViewComponents.UI.SingleItem.SingleItemViewComponent alumnComponent =
+        new JSViewComponents.UI.SingleItem.SingleItemViewComponent(
+            "alumn",
+            Alumn.SampleAlumns.First(),
+            null
+        );
+}
+<jsvc component="alumnComponent"></jsvc>
+
+@{
+    JSViewComponents.UI.SingleItem.SingleItemViewComponent subjectComponent =
+        new JSViewComponents.UI.SingleItem.SingleItemViewComponent(
+            "subject",
+            Subject.SampleSubjects.First(),
+            null
+        );
+}
+<jsvc component="subjectComponent"></jsvc>
+
+
+<p>
     Two differents sets of data using same <strong>TableViewComponent</strong>, but with different CSS styles
     <span style="font-size: smaller;">(click on the headers to get sorted data).</span>
 </p>

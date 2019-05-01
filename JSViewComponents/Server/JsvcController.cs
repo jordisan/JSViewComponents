@@ -5,7 +5,7 @@ namespace JSViewComponents.Server
     /// <summary>
     /// Generic MVC controller for JSViewComponents
     /// </summary>
-    public class JSViewComponentController : Controller
+    public class JsvcController : Controller
     {
         /// <summary>
         /// Return the rendered component

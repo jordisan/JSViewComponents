@@ -12,7 +12,7 @@ namespace JSViewComponents.Demo.Controllers
     /// <summary>
     /// Example of a MVC controller for a given JSViewComponent
     /// </summary>
-    public class SubjectController : JSViewComponentController
+    public class SubjectController : JsvcController
     {
         /// <summary>
         /// Return a rendered table component with all subjects

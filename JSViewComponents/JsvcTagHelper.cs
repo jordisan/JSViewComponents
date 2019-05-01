@@ -14,12 +14,12 @@ namespace JSViewComponents
     /// </code></example>
     /// </summary>
     [HtmlTargetElement("jsvc", Attributes = ComponentAttributeName)]
-    public class JSViewComponentTagHelper : TagHelper
+    public class JsvcTagHelper : TagHelper
     {
         private const string ComponentAttributeName = "component";
         private readonly IViewComponentHelper _viewComponentHelper;
 
-        public JSViewComponentTagHelper(IViewComponentHelper viewComponentHelper)
+        public JsvcTagHelper(IViewComponentHelper viewComponentHelper)
         {
             _viewComponentHelper = viewComponentHelper;
         }

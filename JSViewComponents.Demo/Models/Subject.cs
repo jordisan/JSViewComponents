@@ -10,18 +10,12 @@ namespace JSViewComponents.Demo.Models
     /// Example of a model (class) that can be rendered using a table component
     /// </summary>
     public class Subject
-        : UI.Table.IColumnable
     {
+        [JsvcPropertyAttr("Subject", sortable: true)]
         public string Title { get; set; }
-        public int Credits { get; set; }
 
-        public IEnumerable<Column> ToColumns()
-        {
-            return new Column[] {
-                new Column("Title", "Subject title", this.Title, true),
-                new Column("Credits", "Credits", this.Credits, true)
-            };
-        }
+        [JsvcPropertyAttr("Credits", sortable: true)]
+        public int Credits { get; set; }
 
         public static IEnumerable<Subject> SampleSubjects = new Subject[]
             {

@@ -7,3 +7,9 @@
 
 .jsviewcomponent.table th, .jsviewcomponent.table td {
   padding: 3px 5px; }
+
+.jsviewcomponent.singleitem th {
+  text-align: left; }
+
+.jsviewcomponent.singleitem th, .jsviewcomponent.singleitem td {
+  padding: 3px 5px; }

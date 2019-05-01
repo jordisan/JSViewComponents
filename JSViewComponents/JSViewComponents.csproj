@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Remove="UI\Base.ts" />
+    <TypeScriptCompile Remove="UI\SingleItem\SingleItem.ts" />
     <TypeScriptCompile Remove="UI\Table\Table.ts" />
   </ItemGroup>
 

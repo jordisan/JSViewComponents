@@ -15,6 +15,12 @@ body {
 
 /* Customization of JSViewComponents */
 
+.jsviewcomponent.singleitem {
+    display: inline-block;
+    margin: 10px 20px;
+    vertical-align: top;
+}
+
 .jsviewcomponent.table {
     display: inline-block;
     margin: 10px 20px;

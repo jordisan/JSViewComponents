@@ -1,8 +1,6 @@
-﻿using JSViewComponents.UI.Table;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using JSViewComponents;
 
 namespace JSViewComponents.Demo.Models
 {
@@ -10,20 +8,15 @@ namespace JSViewComponents.Demo.Models
     /// Example of a model (class) that can be rendered using a table component
     /// </summary>
     public class Alumn
-        : UI.Table.IColumnable
     {
+        [JsvcPropertyAttr("First name", sortable:true)]
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime BirthDate { get; set; }
 
-        public IEnumerable<Column> ToColumns()
-        {
-            return new Column[] {
-                new Column("FirstName", "First name", this.FirstName, true),
-                new Column("LastName", "Last name", this.LastName, true),
-                new Column("BirthDate", "Birth date", this.BirthDate.ToShortDateString(), false)
-            };
-        }
+        [JsvcPropertyAttr("Last name", sortable:true)]
+        public string LastName { get; set; }
+
+        [JsvcPropertyAttr("Birthdate", sortable:false)]
+        public DateTime BirthDate { get; set; }
 
         public static IEnumerable<Alumn> SampleAlumns = new Alumn[]
             {
