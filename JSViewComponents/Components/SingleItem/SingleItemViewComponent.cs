@@ -1,10 +1,10 @@
-﻿namespace JSViewComponents.UI.SingleItem
+﻿namespace JSViewComponents.Components.SingleItem
 {
     /// <summary>
     /// JSViewComponent to show properties from a single item
     /// </summary>
     public class SingleItemViewComponent 
-        : UI.BaseViewComponent
+        : Components.BaseViewComponent
     {
         /// <summary>
         /// Object to be show

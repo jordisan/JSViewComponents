@@ -6,7 +6,7 @@
     "removeComments": false,
     "sourceMap": true,
     "target": "es5",
-    "declaration": false,
+    "declaration": true,
     "module": "system",
     "outFile": "./resources/JSViewComponents.js"
   },

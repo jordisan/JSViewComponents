@@ -14,13 +14,13 @@
 
 <p><a target="_blank" href="https://github.com/jordisan/JSViewComponents">JSViewComponents source code and more info at <strong>GitHub</strong></a></p>
 
-<h2>Using JSViewComponents</h2>
+<h2>Using generic JSViewComponents</h2>
 <p>
-    Components <strong>SingleItem</strong> showing data for a single alumn and a single subject.
+    Components <strong>SingleItem</strong> showing data for a single alumn and a single course.
 </p>
 @{
-    JSViewComponents.UI.SingleItem.SingleItemViewComponent alumnComponent =
-        new JSViewComponents.UI.SingleItem.SingleItemViewComponent(
+    JSViewComponents.Components.SingleItem.SingleItemViewComponent alumnComponent =
+        new JSViewComponents.Components.SingleItem.SingleItemViewComponent(
             "alumn",
             Alumn.SampleAlumns.First(),
             null
@@ -29,14 +29,14 @@
 <jsvc component="alumnComponent"></jsvc>
 
 @{
-    JSViewComponents.UI.SingleItem.SingleItemViewComponent subjectComponent =
-        new JSViewComponents.UI.SingleItem.SingleItemViewComponent(
-            "subject",
-            Subject.SampleSubjects.First(),
+    JSViewComponents.Components.SingleItem.SingleItemViewComponent courseComponent =
+        new JSViewComponents.Components.SingleItem.SingleItemViewComponent(
+            "course",
+            Course.SampleCourses.First(),
             null
         );
 }
-<jsvc component="subjectComponent"></jsvc>
+<jsvc component="courseComponent"></jsvc>
 
 
 <p>
@@ -44,8 +44,8 @@
     <span style="font-size: smaller;">(click on the headers to get sorted data).</span>
 </p>
 @{
-    JSViewComponents.UI.Table.TableViewComponent alumnsTableComponent =
-        new JSViewComponents.UI.Table.TableViewComponent(
+    JSViewComponents.Components.Table.TableViewComponent alumnsTableComponent =
+        new JSViewComponents.Components.Table.TableViewComponent(
             "alumns",
             Alumn.SampleAlumns,
             null,
@@ -55,12 +55,24 @@
 <jsvc component="alumnsTableComponent"></jsvc>
 
 @{
-    JSViewComponents.UI.Table.TableViewComponent subjectsTableComponent =
-        new JSViewComponents.UI.Table.TableViewComponent(
-            "subjects",
-            Subject.SampleSubjects,
+    JSViewComponents.Components.Table.TableViewComponent coursesTableComponent =
+        new JSViewComponents.Components.Table.TableViewComponent(
+            "courses",
+            Course.SampleCourses,
             null,
-            Url.Action("GetAll", "Subject", null, Context.Request.Scheme)
+            Url.Action("GetAll", "Course", null, Context.Request.Scheme)
         );
 }
-<jsvc component="subjectsTableComponent"></jsvc>
+<jsvc component="coursesTableComponent"></jsvc>
+
+<h2>Extending JSViewComponents to create custom components</h2>
+
+@{
+    JSViewComponents.Demo.Views.Components.StudentReportCard.StudentReportCardViewComponent reportComponent =
+        new JSViewComponents.Demo.Views.Components.StudentReportCard.StudentReportCardViewComponent(
+            "report",
+            Alumn.SampleAlumns,
+            null
+        );
+}
+<jsvc component="reportComponent"></jsvc>

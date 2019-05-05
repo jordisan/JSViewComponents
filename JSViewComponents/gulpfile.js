@@ -4,7 +4,7 @@ var gulp = require("gulp"),
     concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps');
 
-var sassfiles = './UI/**/*.scss';
+var sassfiles = './Components/**/*.scss';
 
 gulp.task("sass", function () {
     return gulp.src(sassfiles)

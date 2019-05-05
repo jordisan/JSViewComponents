@@ -1,4 +1,4 @@
-﻿using JSViewComponents.UI.Table;
+﻿using JSViewComponents.Components.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,33 +9,40 @@ namespace JSViewComponents.Demo.Models
     /// <summary>
     /// Example of a model (class) that can be rendered using a table component
     /// </summary>
-    public class Subject
+    public class Course
     {
-        [JsvcPropertyAttr("Subject", sortable: true)]
+        [JsvcPropertyAttr("Code", sortable: true)]
+        public string Code { get; set; }
+
+        [JsvcPropertyAttr("Course", sortable: true)]
         public string Title { get; set; }
 
         [JsvcPropertyAttr("Credits", sortable: true)]
         public int Credits { get; set; }
 
-        public static IEnumerable<Subject> SampleSubjects = new Subject[]
+        public static IEnumerable<Course> SampleCourses = new Course[]
             {
-                new Subject
+                new Course
                 {
+                    Code="MATH",
                     Title = "Maths",
                     Credits = 32
                 },
-                new Subject
+                new Course
                 {
+                    Code="ECON",
                     Title = "Economics",
                     Credits = 30
                 },
-                new Subject
+                new Course
                 {
+                    Code="PHIL",
                     Title = "Philosophy",
                     Credits = 26
                 },
-                new Subject
+                new Course
                 {
+                    Code="HIST",
                     Title = "History",
                     Credits = 16
                 }

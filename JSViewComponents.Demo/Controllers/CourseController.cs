@@ -12,16 +12,16 @@ namespace JSViewComponents.Demo.Controllers
     /// <summary>
     /// Example of a MVC controller for a given JSViewComponent
     /// </summary>
-    public class SubjectController : JsvcController
+    public class CourseController : JsvcController
     {
         /// <summary>
-        /// Return a rendered table component with all subjects
+        /// Return a rendered table component with all courses
         /// </summary>
         /// <param name="sortCriteria"></param>
         /// <returns></returns>
         public IActionResult GetAll(string sortCriteria)
         {
-            return RenderJSViewComponentContent(new JSViewComponents.UI.Table.TableViewComponent(null, Subject.SampleSubjects, sortCriteria));
+            return RenderJSViewComponentContent(new Components.Table.TableViewComponent(null, Course.SampleCourses, sortCriteria));
         }
     }
 }

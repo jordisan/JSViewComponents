@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace JSViewComponents.UI
+namespace JSViewComponents.Components
 {
     /// <summary>
     /// Base class for any JSViewComponent
@@ -64,7 +64,7 @@ namespace JSViewComponents.UI
 
         public Task<IViewComponentResult> InvokeAsync(ViewComponent component)
         {
-            return Task.FromResult<IViewComponentResult>(View("~/UI/Base.cshtml", component));
+            return Task.FromResult<IViewComponentResult>(View("~/Components/Base.cshtml", component));
         }
 
         public string PartialPath()
@@ -102,7 +102,7 @@ namespace JSViewComponents.UI
         /// <returns></returns>
         public static string GetPartialPath(string componentName)
         {
-            return "~/UI/" + componentName + "/" + componentName + ".cshtml";
+            return "~/Components/" + componentName + "/" + componentName + ".cshtml";
         }
 
 #endregion

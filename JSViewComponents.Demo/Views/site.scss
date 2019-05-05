@@ -19,17 +19,25 @@ body {
     display: inline-block;
     margin: 10px 20px;
     vertical-align: top;
+
+    &.alumn {
+        border: solid 1px #d0e795;
+    }
+
+    &.course {
+        border: solid 1px #aaeeee;
+    }
 }
 
 .jsviewcomponent.table {
     display: inline-block;
     margin: 10px 20px;
+
+    &.alumns thead {
+        background-color: #d0e795;
+    }
+
+    &.courses thead {
+        background-color: #aaeeee;
+    }
 }
-
-    .jsviewcomponent.table.alumns thead {
-        background-color: #e0f7a5;
-    }
-
-    .jsviewcomponent.table.subjects thead {
-        background-color: #aaffff;
-    }

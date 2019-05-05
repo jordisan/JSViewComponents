@@ -1,0 +1,33 @@
+﻿@using JSViewComponents
+@using JSViewComponents.Components.SingleItem
+@model SingleItemViewComponent
+
+@if (Model?.Data == null)
+{
+    <!-- NO DATA -->
+}
+else
+{
+
+    <table>
+        <tbody>
+            @{
+                var propAttrsDict = Model.Data.GetJsvcProperties();
+                foreach (System.Reflection.PropertyInfo prop in propAttrsDict.Keys)
+                {
+                    JsvcPropertyAttr attr = propAttrsDict[prop].First();
+
+                    <tr>
+                        <th>
+                            @attr.Label
+                        </th>
+                        <td class="@Model.NormalizeString(prop.Name)">
+                            @prop.GetValue(Model.Data)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+}

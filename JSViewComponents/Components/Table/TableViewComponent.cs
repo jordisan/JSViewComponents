@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace JSViewComponents.UI.Table
+namespace JSViewComponents.Components.Table
 {
     /// <summary>
     /// Table JSViewComponent
     /// </summary>
     public class TableViewComponent 
-        : UI.BaseViewComponent
+        : Components.BaseViewComponent
     {
         private IEnumerable<object> _Data;
         /// <summary>
@@ -18,7 +18,7 @@ namespace JSViewComponents.UI.Table
         public IEnumerable<object> Data {
             get
             {
-                if (String.IsNullOrEmpty(SortCriteria)) return _Data;
+                if (string.IsNullOrEmpty(SortCriteria)) return _Data;
                 string sortProperty = SortCriteria.Split(' ')[0];
                 string sortOrder = (SortCriteria + " ASC").Split(' ')[1];
                 if (sortOrder.Equals("ASC", StringComparison.InvariantCultureIgnoreCase))

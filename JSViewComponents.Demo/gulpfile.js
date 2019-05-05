@@ -1,6 +1,8 @@
-/// <binding AfterBuild='min:css, min:js' />
+/// <binding AfterBuild='min:css, min:js' ProjectOpened='sass:watch' />
 // Defining dependencies  
 var gulp = require("gulp"),
+    sass = require("gulp-sass"),
+    sourcemaps = require('gulp-sourcemaps'),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
     uglify = require("gulp-uglify");
@@ -9,7 +11,7 @@ var webroot = './wwwroot/';
 var paths = {
   js: webroot + "js/**/*.js",
   minJs: webroot + "js/**/*.min.js",
-  css: webroot + "css/**/*.css",
+  css: "./Views/**/*.scss",
   minCss: webroot + "css/**/*.min.css",
   concatJsDest: webroot + "js/site.min.js",
   concatCssDest: webroot + "css/site.min.css"
@@ -23,8 +25,14 @@ gulp.task("min:js", function () {
 });
 // Bundling (via concat()) and minifying (via cssmin()) Javascript  
 gulp.task("min:css", function () {
-  return gulp.src([paths.css, "!" + paths.minCss])
-      .pipe(concat(paths.concatCssDest))
-      .pipe(cssmin())
-      .pipe(gulp.dest("."));
+    return gulp.src(paths.css)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(concat(paths.concatCssDest))
+        .pipe(cssmin())
+        .pipe(gulp.dest("."));
+});
+
+gulp.task('sass:watch', function () {
+    gulp.watch(paths.css, gulp.series('min:css'));
 });

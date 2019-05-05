@@ -14,9 +14,9 @@ namespace JSViewComponents.Server
         /// <param name="component"></param>
         /// <returns></returns>
         public IActionResult RenderJSViewComponentContent<Tcomponent>(Tcomponent component) 
-            where Tcomponent : JSViewComponents.UI.BaseViewComponent {
+            where Tcomponent : Components.BaseViewComponent {
             return PartialView(
-                JSViewComponents.UI.BaseViewComponent.GetPartialPath(component.ComponentName),
+                Components.BaseViewComponent.GetPartialPath(component.ComponentName),
                 component
             );
         }

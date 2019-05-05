@@ -48,6 +48,15 @@ var Base = /** @class */ (function () {
     Base.prototype.initialize = function () { };
     return Base;
 }());
+var SingleItem = /** @class */ (function (_super) {
+    __extends(SingleItem, _super);
+    function SingleItem() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SingleItem.prototype.initialize = function () {
+    };
+    return SingleItem;
+}(Base));
 var Table = /** @class */ (function (_super) {
     __extends(Table, _super);
     function Table() {
@@ -59,14 +68,5 @@ var Table = /** @class */ (function (_super) {
         this.el.querySelectorAll('th.sortable').forEach(function (header) { return header.addEventListener("click", function (event) { _this.getFromServer({ sortCriteria: event.target.dataset.internalName + ' ASC' }); }); });
     };
     return Table;
-}(Base));
-var SingleItem = /** @class */ (function (_super) {
-    __extends(SingleItem, _super);
-    function SingleItem() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    SingleItem.prototype.initialize = function () {
-    };
-    return SingleItem;
 }(Base));
 //# sourceMappingURL=JSViewComponents.js.map

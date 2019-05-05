@@ -35,9 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Remove="UI\Base.ts" />
-    <TypeScriptCompile Remove="UI\SingleItem\SingleItem.ts" />
-    <TypeScriptCompile Remove="UI\Table\Table.ts" />
+    <TypeScriptCompile Remove="Components\Base.ts" />
+    <TypeScriptCompile Remove="Components\SingleItem\SingleItem.ts" />
+    <TypeScriptCompile Remove="Components\Table\Table.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,7 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="UI\Base.cshtml">
+    <Content Update="Components\Base.cshtml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>  

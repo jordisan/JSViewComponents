@@ -25,13 +25,20 @@ JSViewComponents library; can be referenced as a Visual Studio project, or as a 
 
 Example of a MVC project using (and extending) JSViewComponents. 
 
-### Including JSViewComponents:
-- reference to _JSViewComponents_ library (through project reference or NuGet package)
-- in [`Startup.cs`](JSViewComponents.Demo/Startup.cs#L34) (to access resources in JSViewComponents):
+### Including JSViewComponents in your project:
+
+**Download/fork this project** and adapt it to your needs
+
+OR
+
+**Include JSViewComponents as a reference** in your own project
+
+1. reference to _JSViewComponents_ library (through project reference or NuGet package)
+2. in [`Startup.cs`](JSViewComponents.Demo/Startup.cs#L34) (to access resources in JSViewComponents):
 ```csharp
 services.ConfigureOptions(typeof(JSViewComponents.UIConfigureOptions));
 ```
-- in [`Views/_ViewImports.cshtml`](JSViewComponents.Demo/Views/_ViewImports.cshtml) (namespaces and tag helpers to include JSViewComponents in views):
+3. in [`Views/_ViewImports.cshtml`](JSViewComponents.Demo/Views/_ViewImports.cshtml) (namespaces and tag helpers to include JSViewComponents in views):
 ```csharp
 @using JSViewComponents.Demo
 @using JSViewComponents.Demo.Models
@@ -44,8 +51,8 @@ services.ConfigureOptions(typeof(JSViewComponents.UIConfigureOptions));
 - finally, to include the table component in view [`Views/Home/Index.cshtml`](JSViewComponents.Demo/Views/Home/Index.cshtml#L21):
 ```csharp
 @{
-    JSViewComponents.UI.Table.TableViewComponent alumnsTableComponent =
-        new JSViewComponents.UI.Table.TableViewComponent(
+    JSViewComponents.Components.Table.TableViewComponent alumnsTableComponent =
+        new JSViewComponents.Components.Table.TableViewComponent(
             Model,
             null,
             Url.Action("GetAll", "Alumn", null, Context.Request.Scheme)
