@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace JSViewComponents
 {
@@ -22,6 +20,8 @@ namespace JSViewComponents
 
         public void PostConfigure(string name, StaticFileOptions options)
         {
+            const string RESOURCES_FOLDER = "Resources";
+
             name = name ?? throw new ArgumentNullException(nameof(name));
             options = options ?? throw new ArgumentNullException(nameof(options));
 
@@ -34,10 +34,13 @@ namespace JSViewComponents
 
             options.FileProvider = options.FileProvider ?? Environment.WebRootFileProvider;
 
-            var basePath = "resources";
+            // Use the files that are embedded in the assembly.
+            options.FileProvider = new CompositeFileProvider(
+                options.FileProvider,
+                new ManifestEmbeddedFileProvider(GetType().Assembly, RESOURCES_FOLDER)
+            );
 
-            var filesProvider = new ManifestEmbeddedFileProvider(GetType().Assembly, basePath);
-            options.FileProvider = new CompositeFileProvider(options.FileProvider, filesProvider);
+            Environment.WebRootFileProvider = options.FileProvider; // required to make asp-append-version work as it uses the WebRootFileProvider. https://github.com/aspnet/Mvc/issues/7459
         }
     }
 }

@@ -11,7 +11,7 @@ gulp.task("sass", function () {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(concat('JSViewComponents.css'))
-        .pipe(gulp.dest('./resources/'));
+        .pipe(gulp.dest('./Resources/'));
 });
 
 gulp.task('sass:watch', function () {

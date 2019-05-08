@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System;
 using System.Threading.Tasks;
 
 namespace JSViewComponents
@@ -33,11 +34,23 @@ namespace JSViewComponents
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            ((IViewContextAware)_viewComponentHelper).Contextualize(ViewContext);
-
-            var content = await _viewComponentHelper.InvokeAsync(typeof(BaseViewComponent), new { component = Component });
-            output.TagMode = TagMode.StartTagAndEndTag;
-            output.Content.SetHtmlContent(content);
+            try
+            {
+                ((IViewContextAware)_viewComponentHelper).Contextualize(ViewContext);
+                var content = await _viewComponentHelper.InvokeAsync(typeof(BaseViewComponent), new { component = Component });
+                output.TagMode = TagMode.StartTagAndEndTag;
+                output.Content.SetHtmlContent(content);
+            }
+            catch (Exception e)
+            {
+                output.Content.SetHtmlContent(
+                    "<p class=\"error\">EXCEPTION rendering JSViewComponent: " + Component?.ComponentFullName + "</p>" + Environment.NewLine +
+                    "<!-- " + Environment.NewLine +
+                    e.Message + Environment.NewLine +
+                    e.StackTrace + Environment.NewLine +
+                    "-->"
+                );
+            }
         }
     }
 

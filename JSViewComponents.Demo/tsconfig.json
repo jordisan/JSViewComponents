@@ -8,12 +8,19 @@
     "target": "es5",
     "declaration": true,
     "module": "system",
-    "outFile": "./Resources/JSViewComponents.js",
-    "composite": true
+    "outFile": "./wwwroot/js/site.js"
   },
   "exclude": [
     "node_modules",
     "wwwroot",
     "Resources"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "../JSViewComponents/Resources/JSViewComponents.d.ts"
+  ],
+  "references": [
+    { "path": "../JSViewComponents" }
   ]
 }
