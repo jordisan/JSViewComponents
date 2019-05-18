@@ -1,0 +1,40 @@
+{
+  "bundle": {
+    "commonSourceDirectory": "C:/Users/jordisan/source/repos/JSViewComponents/JSViewComponents/",
+    "sourceFiles": [
+      "C:/Users/jordisan/source/repos/JSViewComponents/JSViewComponents/Views/Shared/JSVC/Base.ts",
+      "C:/Users/jordisan/source/repos/JSViewComponents/JSViewComponents/Views/Shared/JSVC/SingleItem/SingleItem.ts",
+      "C:/Users/jordisan/source/repos/JSViewComponents/JSViewComponents/Views/Shared/JSVC/Table/Table.ts"
+    ],
+    "js": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 597,
+          "kind": "emitHelpers",
+          "data": "typescript:extends"
+        },
+        {
+          "pos": 599,
+          "end": 2906,
+          "kind": "text"
+        }
+      ],
+      "sources": {
+        "helpers": [
+          "typescript:extends"
+        ]
+      }
+    },
+    "dts": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 652,
+          "kind": "text"
+        }
+      ]
+    }
+  },
+  "version": "3.4.5"
+}

@@ -12,6 +12,8 @@ namespace JSViewComponents.Components
     /// </summary>
     public class BaseViewComponent : ViewComponent
     {
+        public const string COMPONENTS_PATH = "JSVC/";
+
         /// <summary>
         /// Unique Id for this component
         /// </summary>
@@ -64,7 +66,7 @@ namespace JSViewComponents.Components
 
         public Task<IViewComponentResult> InvokeAsync(ViewComponent component)
         {
-            return Task.FromResult<IViewComponentResult>(View("~/Components/Base.cshtml", component));
+            return Task.FromResult<IViewComponentResult>(View("~/Views/Shared/" + COMPONENTS_PATH + "Base.cshtml", component));
         }
 
         public string PartialPath()
@@ -102,7 +104,7 @@ namespace JSViewComponents.Components
         /// <returns></returns>
         public static string GetPartialPath(string componentName)
         {
-            return "~/Components/" + componentName + "/" + componentName + ".cshtml";
+            return COMPONENTS_PATH + componentName + "/" + componentName;
         }
 
 #endregion

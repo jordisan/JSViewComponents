@@ -1,1 +1,1 @@
-{"version":3,"file":"site.js","sourceRoot":"","sources":["../../Views/Components/StudentReportCard/StudentReportCard.ts"],"names":[],"mappings":";;;;;;;;;;;;;AAAA;IAAgC,qCAAU;IAA1C;;IAGA,CAAC;IAFa,sCAAU,GAApB;IACA,CAAC;IACL,wBAAC;AAAD,CAAC,AAHD,CAAgC,UAAU,GAGzC"}
+{"version":3,"file":"site.js","sourceRoot":"","sources":["../../Views/Shared/JSVC/StudentReportCard/StudentReportCard.ts"],"names":[],"mappings":";;;;;;;;;;;;;AAAA;IAAgC,qCAAU;IAA1C;;IAGA,CAAC;IAFa,sCAAU,GAApB;IACA,CAAC;IACL,wBAAC;AAAD,CAAC,AAHD,CAAgC,UAAU,GAGzC"}
