@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace JSViewComponents.Components.Table
+namespace JSViewComponents.JSVC.Table
 {
     /// <summary>
     /// Table JSViewComponent
     /// </summary>
     public class TableViewComponent 
-        : Components.BaseViewComponent
+        : JSVC.BaseViewComponent
     {
         private IEnumerable<object> _Data;
         /// <summary>

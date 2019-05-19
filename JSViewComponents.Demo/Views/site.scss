@@ -14,6 +14,11 @@ body {
 }
 
 /* Customization of JSViewComponents */
+.jsviewcomponent {
+    border: 1px solid gray;
+    box-shadow: 2px 2px grey;
+    padding: 0px 5px;
+}
 
 .jsviewcomponent.singleitem {
     display: inline-block;
@@ -21,11 +26,11 @@ body {
     vertical-align: top;
 
     &.alumn {
-        border: solid 1px #d0e795;
+        border: solid 1px #d0e7a5;
     }
 
     &.course {
-        border: solid 1px #aaeeee;
+        border: solid 1px #ccdddd;
     }
 }
 
@@ -34,10 +39,10 @@ body {
     margin: 10px 20px;
 
     &.alumns thead {
-        background-color: #d0e795;
+        background-color: #d0e7a5;
     }
 
     &.courses thead {
-        background-color: #aaeeee;
+        background-color: #ccdddd;
     }
 }

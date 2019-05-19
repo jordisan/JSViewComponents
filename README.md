@@ -51,8 +51,8 @@ services.ConfigureOptions(typeof(JSViewComponents.UIConfigureOptions));
 - finally, to include the table component in view [`Views/Home/Index.cshtml`](JSViewComponents.Demo/Views/Home/Index.cshtml#L21):
 ```csharp
 @{
-    JSViewComponents.Components.Table.TableViewComponent alumnsTableComponent =
-        new JSViewComponents.Components.Table.TableViewComponent(
+    JSViewComponents.JSVC.Table.TableViewComponent alumnsTableComponent =
+        new JSViewComponents.JSVC.Table.TableViewComponent(
             Model,
             null,
             Url.Action("GetAll", "Alumn", null, Context.Request.Scheme)

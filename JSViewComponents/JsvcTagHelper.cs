@@ -1,4 +1,4 @@
-﻿using JSViewComponents.Components;
+﻿using JSViewComponents.JSVC;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;

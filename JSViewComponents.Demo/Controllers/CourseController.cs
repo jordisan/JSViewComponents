@@ -21,7 +21,7 @@ namespace JSViewComponents.Demo.Controllers
         /// <returns></returns>
         public IActionResult GetAll(string sortCriteria)
         {
-            return RenderJSViewComponentContent(new Components.Table.TableViewComponent(null, Course.SampleCourses, sortCriteria));
+            return RenderJSViewComponentContent(new JSVC.Table.TableViewComponent(null, Course.SampleCourses, sortCriteria));
         }
     }
 }

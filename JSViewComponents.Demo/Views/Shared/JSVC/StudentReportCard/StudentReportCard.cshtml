@@ -1,33 +1,30 @@
 ﻿@using JSViewComponents
-@using JSViewComponents.Demo.Views.Components.StudentReportCard
+@using JSViewComponents.Demo.Views.JSVC.StudentReportCard
 @model StudentReportCardViewComponent
 
-@if (Model?.Data == null)
-{
-    <!-- NO DATA -->
-}
-else
-{
+@{
+    Alumn alumn = Model.Data as Alumn;
+    if (alumn == null)
+    {
+<!-- NO DATA -->
+    }
+    else
+    {
 
+<article>
+    <h1>Report card for: @alumn.LastName, @alumn.FirstName</h1>
     <table>
         <tbody>
-            @{
-                var propAttrsDict = Model.Data.GetJsvcProperties();
-                foreach (System.Reflection.PropertyInfo prop in propAttrsDict.Keys)
-                {
-                    JsvcPropertyAttr attr = propAttrsDict[prop].First();
-
-                    <tr>
-                        <th>
-                            @attr.Label
-                        </th>
-                        <td class="@Model.NormalizeString(prop.Name)">
-                            @prop.GetValue(Model.Data)
-                        </td>
-                    </tr>
-                }
+            @foreach (string course in alumn.Grades.Keys) { 
+                <tr>
+                    <th>@course</th>
+                    <td>@alumn.Grades[course]</td>
+                </tr>
             }
         </tbody>
     </table>
 
+</article>
+
+    }
 }

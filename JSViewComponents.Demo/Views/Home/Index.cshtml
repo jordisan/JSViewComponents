@@ -19,8 +19,8 @@
     Components <strong>SingleItem</strong> showing data for a single alumn and a single course.
 </p>
 @{
-    JSViewComponents.Components.SingleItem.SingleItemViewComponent alumnComponent =
-        new JSViewComponents.Components.SingleItem.SingleItemViewComponent(
+    JSViewComponents.JSVC.SingleItem.SingleItemViewComponent alumnComponent =
+        new JSViewComponents.JSVC.SingleItem.SingleItemViewComponent(
             "alumn",
             Alumn.SampleAlumns.First(),
             null
@@ -29,8 +29,8 @@
 <jsvc component="alumnComponent"></jsvc>
 
 @{
-    JSViewComponents.Components.SingleItem.SingleItemViewComponent courseComponent =
-        new JSViewComponents.Components.SingleItem.SingleItemViewComponent(
+    JSViewComponents.JSVC.SingleItem.SingleItemViewComponent courseComponent =
+        new JSViewComponents.JSVC.SingleItem.SingleItemViewComponent(
             "course",
             Course.SampleCourses.First(),
             null
@@ -44,8 +44,8 @@
     <span style="font-size: smaller;">(click on the headers to get sorted data).</span>
 </p>
 @{
-    JSViewComponents.Components.Table.TableViewComponent alumnsTableComponent =
-        new JSViewComponents.Components.Table.TableViewComponent(
+    JSViewComponents.JSVC.Table.TableViewComponent alumnsTableComponent =
+        new JSViewComponents.JSVC.Table.TableViewComponent(
             "alumns",
             Alumn.SampleAlumns,
             null,
@@ -55,8 +55,8 @@
 <jsvc component="alumnsTableComponent"></jsvc>
 
 @{
-    JSViewComponents.Components.Table.TableViewComponent coursesTableComponent =
-        new JSViewComponents.Components.Table.TableViewComponent(
+    JSViewComponents.JSVC.Table.TableViewComponent coursesTableComponent =
+        new JSViewComponents.JSVC.Table.TableViewComponent(
             "courses",
             Course.SampleCourses,
             null,
@@ -68,10 +68,10 @@
 <h2>Extending JSViewComponents to create custom components</h2>
 
 @{
-    JSViewComponents.Demo.Views.Components.StudentReportCard.StudentReportCardViewComponent reportComponent =
-        new JSViewComponents.Demo.Views.Components.StudentReportCard.StudentReportCardViewComponent(
+    JSViewComponents.Demo.Views.JSVC.StudentReportCard.StudentReportCardViewComponent reportComponent =
+        new JSViewComponents.Demo.Views.JSVC.StudentReportCard.StudentReportCardViewComponent(
             "report",
-            Alumn.SampleAlumns,
+            Alumn.SampleAlumns.First(),
             null
         );
 }

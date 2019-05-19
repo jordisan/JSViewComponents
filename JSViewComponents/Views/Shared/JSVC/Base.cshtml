@@ -1,5 +1,5 @@
 ﻿@* Template to be used for any JSViewComponent *@
-@model JSViewComponents.Components.BaseViewComponent
+@model JSViewComponents.JSVC.BaseViewComponent
 <article 
     class="jsviewcomponent @(Model.NormalizeString(Model.Name)) @(Model.NormalizeString(Model.ComponentName))" 
     id="@Model.Id"
@@ -15,5 +15,7 @@
 </article>
 <script type="text/javascript">
     @* Initialize the JS *@
-    new @(Model.ComponentName)('@Model.Id', '@Model.DataUrl');
+    window.addEventListener("load", function () {
+        new @(Model.ComponentName)('@Model.Id', '@Model.DataUrl');
+    });    
 </script>
