@@ -6,6 +6,10 @@ body {
     font-size: 14px;
 }
 
+h2 {
+    margin-top: 2.5em;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -13,15 +17,25 @@ body {
     padding-right: 15px;
 }
 
+footer {
+    margin-top: 2.0em;
+}
+
 /* Customization of JSViewComponents */
 .jsviewcomponent {
+    display: inline-block;
     border: 1px solid gray;
     box-shadow: 2px 2px grey;
     padding: 0px 5px;
+
+    & + div, & + pre, & + img {
+        display: inline-block !important;
+        font-size: 12px;
+        vertical-align: top;
+    }
 }
 
 .jsviewcomponent.singleitem {
-    display: inline-block;
     margin: 10px 20px;
     vertical-align: top;
 
@@ -35,7 +49,6 @@ body {
 }
 
 .jsviewcomponent.table {
-    display: inline-block;
     margin: 10px 20px;
 
     &.alumns thead {

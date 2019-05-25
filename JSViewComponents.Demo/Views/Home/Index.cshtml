@@ -18,6 +18,9 @@
 <p>
     Components <strong>SingleItem</strong> showing data for a single alumn and a single course.
 </p>
+
+<p>
+
 @{
     JSViewComponents.JSVC.SingleItem.SingleItemViewComponent alumnComponent =
         new JSViewComponents.JSVC.SingleItem.SingleItemViewComponent(
@@ -27,6 +30,20 @@
         );
 }
 <jsvc component="alumnComponent"></jsvc>
+
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">@@{
+    JSViewComponents.JSVC.SingleItem.SingleItemViewComponent alumnComponent =
+        <span class="hljs-keyword" style="font-weight: 700;">new</span> JSViewComponents.JSVC.SingleItem.SingleItemViewComponent(
+            <span class="hljs-string" style="color: rgb(136, 0, 0);">"alumn"</span>,
+            Alumn.SampleAlumns.First(),
+            <span class="hljs-literal" style="color: rgb(120, 169, 96);">null</span>
+        );
+}
+&lt;jsvc component=<span class="hljs-string" style="color: rgb(136, 0, 0);">"alumnComponent"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name" style="font-weight: 700;">jsvc</span>&gt;</span></span></pre>
+
+</p>
+
+<p>
 
 @{
     JSViewComponents.JSVC.SingleItem.SingleItemViewComponent courseComponent =
@@ -38,11 +55,25 @@
 }
 <jsvc component="courseComponent"></jsvc>
 
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">@@{
+    JSViewComponents.JSVC.SingleItem.SingleItemViewComponent courseComponent =
+        <span class="hljs-keyword" style="font-weight: 700;">new</span> JSViewComponents.JSVC.SingleItem.SingleItemViewComponent(
+            <span class="hljs-string" style="color: rgb(136, 0, 0);">"course"</span>,
+            Course.SampleCourses.First(),
+            <span class="hljs-literal" style="color: rgb(120, 169, 96);">null</span>
+        );
+}
+&lt;jsvc component=<span class="hljs-string" style="color: rgb(136, 0, 0);">"courseComponent"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name" style="font-weight: 700;">jsvc</span>&gt;</span></span></pre>
+
+</p>
+
 
 <p>
     Two differents sets of data using same <strong>TableViewComponent</strong>, but with different CSS styles
     <span style="font-size: smaller;">(click on the headers to get sorted data).</span>
 </p>
+
+<p>
 @{
     JSViewComponents.JSVC.Table.TableViewComponent alumnsTableComponent =
         new JSViewComponents.JSVC.Table.TableViewComponent(
@@ -54,6 +85,19 @@
 }
 <jsvc component="alumnsTableComponent"></jsvc>
 
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">@@{
+    JSViewComponents.JSVC.Table.TableViewComponent alumnsTableComponent =
+        <span class="hljs-keyword" style="font-weight: 700;">new</span> JSViewComponents.JSVC.Table.TableViewComponent(
+            <span class="hljs-string" style="color: rgb(136, 0, 0);">"alumns"</span>,
+            Alumn.SampleAlumns,
+            <span class="hljs-literal" style="color: rgb(120, 169, 96);">null</span>,
+            Url.Action(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GetAll"</span>, <span class="hljs-string" style="color: rgb(136, 0, 0);">"Alumn"</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">null</span>, Context.Request.Scheme)
+        );
+}
+&lt;jsvc component=<span class="hljs-string" style="color: rgb(136, 0, 0);">"alumnsTableComponent"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name" style="font-weight: 700;">jsvc</span>&gt;</span></span></pre>
+</p>
+
+<p>
 @{
     JSViewComponents.JSVC.Table.TableViewComponent coursesTableComponent =
         new JSViewComponents.JSVC.Table.TableViewComponent(
@@ -64,7 +108,17 @@
         );
 }
 <jsvc component="coursesTableComponent"></jsvc>
-
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">@@{
+    JSViewComponents.JSVC.Table.TableViewComponent coursesTableComponent =
+        <span class="hljs-keyword" style="font-weight: 700;">new</span> JSViewComponents.JSVC.Table.TableViewComponent(
+            <span class="hljs-string" style="color: rgb(136, 0, 0);">"courses"</span>,
+            Course.SampleCourses,
+            <span class="hljs-literal" style="color: rgb(120, 169, 96);">null</span>,
+            Url.Action(<span class="hljs-string" style="color: rgb(136, 0, 0);">"GetAll"</span>, <span class="hljs-string" style="color: rgb(136, 0, 0);">"Course"</span>, <span class="hljs-literal" style="color: rgb(120, 169, 96);">null</span>, Context.Request.Scheme)
+        );
+}
+&lt;jsvc component=<span class="hljs-string" style="color: rgb(136, 0, 0);">"coursesTableComponent"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name" style="font-weight: 700;">jsvc</span>&gt;</span></span></pre>
+</p>
 <h2>Extending JSViewComponents to create custom components</h2>
 
 @{
@@ -76,3 +130,4 @@
         );
 }
 <jsvc component="reportComponent"></jsvc>
+<img src="~/images/StudentReportCard.png" style="display: inline-block; vertical-align: top;"/>

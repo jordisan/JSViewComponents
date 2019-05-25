@@ -12,10 +12,11 @@
 >
     @* Render the particular template for the component *@
     @await Html.PartialAsync(Model.PartialPath(), Model)
-</article>
-<script type="text/javascript">
+
+    <script type="text/javascript">
     @* Initialize the JS *@
     window.addEventListener("load", function () {
         new @(Model.ComponentName)('@Model.Id', '@Model.DataUrl');
-    });    
-</script>
+    });
+    </script>
+</article>
