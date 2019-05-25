@@ -16,8 +16,8 @@
     "Resources"
   ],
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "./Views/**/*.ts",
+    "./Views/**/*.tsx",
     "../JSViewComponents/Resources/JSViewComponents.d.ts"
   ],
   "references": [
