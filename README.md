@@ -3,7 +3,7 @@
 JSViewComponents is an extension of standard [ASP.NET Core View components](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-2.2)
 which allows to easily create **components with added JavaScript/TypeScript functionality for ASP.NET projects**.
 
-**[LIVE DEMO](http://jsviewcomponents.jordisan.net)** {align=center}
+**[LIVE DEMO](http://jsviewcomponents.jordisan.net)**
 
 ### What this is:
 - a way to extend the natural solution for ASP.NET MVC visual components (View components) with your custom components and additional JavaScript/TypeScript
